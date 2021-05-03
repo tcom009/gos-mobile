@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 
 export default function PrincipalPage(props) {
   return (
@@ -11,12 +10,9 @@ export default function PrincipalPage(props) {
         <Button
           title="Nuevo Gos"
           color="blue"
-          onPress={() => navigation.push("Start")}
-        >
-          <Text style={{ color: "purple" }}>Nuevo G.O.S</Text>
-        </Button>
+          onPress={() => props.navigation.push("Start")}
+        />
       </View>
-      <StatusBar style="auto" />
     </View>
   );
 }
