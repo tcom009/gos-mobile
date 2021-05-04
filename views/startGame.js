@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput, Button, View, Text } from "react-native";
+import { StyleSheet, TextInput, Button, View, Text } from "react-native";
 export default function StartGame(props) {
   const [player1, setPlayer1] = useState();
   const [player2, setPlayer2] = useState();
@@ -9,16 +9,22 @@ export default function StartGame(props) {
       <Text>Inicia un nuevo juego</Text>
       <View>
         <TextInput
-          placeholder={"Jugador 1 - Impares"}
-          value={player1}
-          onChangeText={(player1) => setPlayer1(player1.toUpperCase())}
+          style={styles.input}
+          label={"Jugador 1"}
+          placeholder="Impares"
+          onChangeText={(player1) => setPlayer1(player1)}
+          defaultValue={player1}
+          autoCapitalize="sentences"
         />
       </View>
       <View>
         <TextInput
-          placeholder={"Jugador 2 - Pares"}
-          value={player2}
-          onChangeText={(player2) => setPlayer2(player2.toUpperCase())}
+          style={styles.input}
+          label={"Jugador 2"}
+          placeholder="Pares"
+          onChangeText={(player2) => setPlayer2(player2)}
+          defaultValue={player2}
+          autoCapitalize="characters"
         />
       </View>
       <Button
@@ -28,3 +34,7 @@ export default function StartGame(props) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  input: { borderWidth: 1, height: 40, margin: 12 },
+});
